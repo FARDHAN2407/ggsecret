@@ -1,0 +1,19 @@
+html[data-bs-theme="dark"] {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+* {
+    font-family: 'Inter', Helvetica, sans-serif;
+}
+
+.table-responsive th, .table-responsive td {
+    background-color: transparent !important;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Menghitung Luas Persegi - Fardhan</title>
+        <link rel="stylesheet" href="global.css" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    </head>
+    <body class="bg-transparent">
+        <nav class="navbar navbar-expand-lg bg-transparent sticky-top" style="backdrop-filter: blur(10px)">
+            <div class="container">
+                <a class="navbar-brand fw-semibold" href="index.html">Fardhan's Blog</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tentang.html">Tentang Saya</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jadwal.html">Jadwal Pelajaran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lagu.html">Syair Lagu</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menghitung</a>
+                            <ul class="dropdown-menu rounded-1" style="background-color: rgba(255, 255, 255, 0.07) !important">
+                                <li><a class="dropdown-item active" aria-current="page" href="luas.html">Luas Persegi</a></li>
+                                <li><a class="dropdown-item" href="volume.html">Volume Kotak</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="my-5">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-md-8 col-12 text-center mx-auto">
+                        <h1 class="display-5 fw-semibold">Menghitung Luas Persegi</h1>
+                        <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere debitis aliquam officia natus aperiam voluptatibus tempora ut harum assumenda quibusdam?</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card p-4 rounded-3" style="background-color: rgba(255, 255, 255, 0.07);">
+                            <div class="mb-3">
+                                <label for="sisi" class="form-label fw-semibold">Panjang Sisi (cm)</label>
+                                <input type="number" id="sisi" class="form-control" placeholder="Masukkan nilai sisi" min="0" />
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-danger d-flex align-items-center justify-content-center gap-2 text-center" onclick="hitungLuas()"><i class="bi bi-calculator"></i> Hitung Luas</button>
+                                <button class="btn btn-secondary d-flex align-items-center justify-content-center gap-2 text-center" onclick="resetForm()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+                            </div>
+                            <hr />
+                            <h5 class="text-center mt-3">Hasil:</h5>
+                            <p id="hasil" class="text-center fs-5 fw-bold">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function hitungLuas() {
+                const sisi = parseFloat(document.getElementById('sisi').value);
+                if (isNaN(sisi) || sisi <= 0) {
+                    document.getElementById('hasil').innerText = 'Masukkan panjang sisi yang valid!';
+                    return;
+                }
+                const luas = sisi * sisi;
+                document.getElementById('hasil').innerHTML = `Luas persegi adalah <strong>${luas}</strong> cm²`;
+            }
+
+            function resetForm() {
+                document.getElementById('sisi').value = '';
+                document.getElementById('hasil').innerText = '-';
+            }
+        </script>
+    </body>
+</html>
